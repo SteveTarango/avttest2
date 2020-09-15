@@ -20,7 +20,7 @@ artifacts:
 
 deploy:
 - provider: Webhook
-  url: https://fqa.test/signpath.io/API/v1/6c1f5fa2-0824-4b5e-b3d9-66f51f58467b/Integrations/AppVeyor?ProjectSlug=Appveyor_integration&SigningPolicySlug=LegacyAppVeyor&ArtifactConfigurationSlug=Default
+  url: https://fqa.test.signpath.io/API/v1/6c1f5fa2-0824-4b5e-b3d9-66f51f58467b/Integrations/AppVeyor?ProjectSlug=Appveyor_integration&SigningPolicySlug=LegacyAppVeyor&ArtifactConfigurationSlug=Default
 
   authorization:
      secure: fxY5R02XJ8g2rRkxzhHJ3Pc9FDv2PqB4RRpHDAsfn9KcN0IXY8cWvVCV/ojJc/QYEEzkZMlfHp+1cXaHHAXdyA==
