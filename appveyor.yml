@@ -1,0 +1,29 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+
+before_build:
+# - dotnet restore
+
+build_script:
+- ps: |
+    $f=[io.file]::Open((Get-Location).Path+"/install.msi",3)
+    $f.SetLength(500000000)
+    $f.Close()
+    Write-Output "Branch: $env:APPVEYOR_REPO_BRANCH"
+    $env:sign="true"
+    Write-Output $env:sign 
+     
+# - dotnet build /verbosity:quiet "avtest.sln"
+
+artifacts:
+- path: install.msi
+
+deploy:
+- provider: Webhook
+  url: https://app.signpath.io/API/v1/b5c891d7-d62e-4abb-9b2d-0134612e1b1a/Integrations/AppVeyor?ProjectSlug=avtest&SigningPolicySlug=test-signing&ArtifactConfigurationSlug=install
+
+  authorization:
+     secure: KSCYAPs7xjfRxSliWq4jPn8Iz5Hn96kc7UyBdgtCfFdZqzRyrGsd+jzMzzDXXq6opSx7x0P0cv9M9hzWuQdw0g==
+  on:
+    sign: true
+

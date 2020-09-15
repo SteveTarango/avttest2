@@ -1,2 +1,2 @@
-# avttest2
-Test repository for signature integration
+# avtest
+appveyor integration test
