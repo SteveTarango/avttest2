@@ -20,12 +20,12 @@ artifacts:
 - path: npgsql.4.0.3.nupkg
 
 environment:
-  SIGNPATH_ORGANIZATION_ID: ef23eb69-8081-4256-98af-efe9c6b73af4
-  SIGNPATH_PROJECT_SLUG: NuGet
-  SIGNPATH_SIGNING_POLICY_SLUG: NugetIntegration
+  SIGNPATH_ORGANIZATION_ID: d2ad3ea0-54b4-42c8-8e74-d8d6d00ece2e
+  SIGNPATH_PROJECT_SLUG: NuGet_AppVeyor
+  SIGNPATH_SIGNING_POLICY_SLUG: NuGet_AppVeyor
   ARTIFACT_CONFIGURATION_SLUG: initial
   SIGNPATH_CI_USER_TOKEN:
-    secure: vh0pV/bStZG09I3Rz4PvyK0uU2bXxSjfDpru5u38+bzQCOU3wLZ3/Zg06F5ySmJf
+    secure: zvTFfmMdFLEHzxXQWlqasiK14RF1dAujsd57mD8+VGyc1+WW6X1a7SkyIHgUPCAG
 
 deploy:
 - provider: Webhook
