@@ -19,12 +19,23 @@ build_script:
 artifacts:
 - path: install.msi
 
+environment:
+  SIGNPATH_ORGANIZATION_ID: ef23eb69-8081-4256-98af-efe9c6b73af4
+  SIGNPATH_PROJECT_SLUG: NuGet
+  SIGNPATH_SIGNING_POLICY_SLUG: NugetIntegration
+  ARTIFACT_CONFIGURATION_SLUG: Default
+  SIGNPATH_CI_USER_TOKEN:
+    secure: vh0pV/bStZG09I3Rz4PvyK0uU2bXxSjfDpru5u38+bzQCOU3wLZ3/Zg06F5ySmJf
+
 deploy:
 - provider: Webhook
-  url: https://fqa.test.signpath.io/API/v1/6c1f5fa2-0824-4b5e-b3d9-66f51f58467b/Integrations/AppVeyor?ProjectSlug=Appveyor_integration&SigningPolicySlug=LegacyAppVeyor&ArtifactConfigurationSlug=Default
+  #url: https://fqa.test.signpath.io/API/v1/6c1f5fa2-0824-4b5e-b3d9-66f51f58467b/Integrations/AppVeyor?ProjectSlug=Appveyor_integration&SigningPolicySlug=LegacyAppVeyor&ArtifactConfigurationSlug=Default
+  url: https://appveyor.connectors.dev.signpath.io:15001/api/sign?OrganizationId=%SIGNPATH_ORGANIZATION_ID%&test=1&ProjectSlug=%SIGNPATH_PROJECT_SLUG%&SigningPolicySlug=%SIGNPATH_SIGNING_POLICY_SLUG%&ArtifactConfigurationSlug=%ARTIFACT_CONFIGURATION_SLUG%
+
 
   authorization:
-     secure: fxY5R02XJ8g2rRkxzhHJ3Pc9FDv2PqB4RRpHDAsfn9KcN0IXY8cWvVCV/ojJc/QYEEzkZMlfHp+1cXaHHAXdyA==
+     # secure: fxY5R02XJ8g2rRkxzhHJ3Pc9FDv2PqB4RRpHDAsfn9KcN0IXY8cWvVCV/ojJc/QYEEzkZMlfHp+1cXaHHAXdyA==
+     # --> AEHM8QqisPaQIso9F8S1D8x+Me3COLlN+RHbLiH58Fw9?
 
   on:
     sign: true
