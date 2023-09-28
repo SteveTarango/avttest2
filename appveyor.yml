@@ -17,7 +17,7 @@ build_script:
 # Testfile
 
 artifacts:
-- path: install.msi
+- path: npgsql.4.0.3.nupkg
 
 environment:
   SIGNPATH_ORGANIZATION_ID: ef23eb69-8081-4256-98af-efe9c6b73af4
